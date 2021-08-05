@@ -1,4 +1,5 @@
-https://airbnb-clone-beige.vercel.app/
+## Deployed App
+https://airbnb-app-clone.vercel.app/
 
 
 # Next.js + Tailwind CSS Example
