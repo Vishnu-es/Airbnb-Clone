@@ -10,12 +10,14 @@ import {
   UsersIcon,
 } from "@heroicons/react/solid";
 import { useState } from "react";
+import { useRouter } from "next/dist/client/router";
 
-function Header() {
+function Header(props) {
   const [searchInput, setsearchInput] = useState("");
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
   const handleSelect = (ranges) => {
     console.log(ranges);
     setstartDate(ranges.selection.startDate);
@@ -29,6 +31,17 @@ function Header() {
   const resetInput = () => {
     setsearchInput("");
   };
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests: noOfGuests,
+      },
+    });
+  };
   return (
     <header
       className="sticky top-0 z-50 grid grid-cols-3 
@@ -37,6 +50,7 @@ function Header() {
     >
       {/* left */}
       <div
+        onClick={() => router.push("/")}
         className="relative flex items-center h-10 cursor-pointer
         my-auto"
       >
@@ -57,7 +71,7 @@ function Header() {
           type="text"
           value={searchInput}
           onChange={(e) => setsearchInput(e.target.value)}
-          placeholder="Start your search"
+          placeholder={props.placeholder || "Start your search"}
           className="flex-grow pl-5 bg-transparent outline-none text-sm 
             text-gray-600 placeholder-gray-400"
         />
@@ -112,11 +126,11 @@ function Header() {
             />
           </div>
           <div className="flex">
-            <button onClick={resetInput} className="flex-grow text-gray-500">
-              Search
-            </button>
             <button onClick={resetInput} className="flex-grow text-red-400">
               Cancel
+            </button>
+            <button onClick={search} className="flex-grow text-gray-500">
+              Search
             </button>
           </div>
         </div>
