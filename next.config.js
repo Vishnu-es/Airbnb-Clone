@@ -1,5 +1,5 @@
-module.exports={
-    images:{
-        domains: ['links.papareact.com','raw.githubusercontent.com']
-    }
-}
+module.exports = {
+  images: {
+    domains: ["links.papareact.com", "raw.githubusercontent.com"],
+  },
+};
