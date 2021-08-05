@@ -1,6 +1,5 @@
 import Image from "next/image";
 function LargeCard(props) {
-  console.log(props.id);
   return (
     <section className="relative py-14 cursor-pointer">
       <div className="relative h-96 min-w-[300px]">
