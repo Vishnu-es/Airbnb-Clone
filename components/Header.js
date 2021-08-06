@@ -52,7 +52,7 @@ function Header(props) {
       <div
         onClick={() => router.push("/")}
         className="relative flex items-center h-10 cursor-pointer
-        my-auto"
+        my-auto hover:animate-bounce"
       >
         <Image
           src="https://raw.githubusercontent.com/Vishnu-es/images/main/Airbnb_Logo_B%C3%A9lo.svg.webp"
@@ -88,7 +88,7 @@ function Header(props) {
         text-gray-500"
       >
         <p className="hidden md:inline cursor-pointer pl-1">Become a host</p>
-        <GlobeAltIcon className="hidden sm:block h-6" />
+        <GlobeAltIcon className="hidden sm:block h-6 hover:animate-spin" />
         <div
           className="flex items-center space-x-2 border-2
             p-2 rounded-full cursor-pointer"
